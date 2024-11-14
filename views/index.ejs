@@ -6,6 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Index file</h1>
+    <h1><%= title%></h1>
+    <% for( let message of messages ) { %>
+    <h2><%= message.user %> : <%= message.text %></h2>
+    <% } %>
   </body>
 </html>

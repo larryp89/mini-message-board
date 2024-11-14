@@ -7,6 +7,9 @@ const app = express();
 // Import the path module from node (provides utilities for working with file/directory paths)
 const path = require("node:path");
 
+// Middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
 // Allows you to serve static files from a public directory
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
@@ -15,13 +18,12 @@ app.use(express.static(assetsPath));
 app.set("views", path.join(__dirname, "views")); // Tells Express to look for template files in the views directory.
 app.set("view engine", "ejs"); // Sets EJS as the templating engine, allowing you to render EJS templates with the res.render method
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// Get routes from routers
+const indexRouter = require("./routes/indexRouter");
+const formRouter = require("./routes/formRouter");
 
-app.get("/new", (req, res) => {
-  res.render("messageForm");
-});
+app.use("/", indexRouter);
+app.use("/new", formRouter);
 
 const port = 3000;
 app.listen(port, () => {

@@ -6,9 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="">
-      <label for="message-form">Type a message!</label>
-      <input type="text" id="message-form" />
+    <h2>Message details</h2>
+    <!-- This will send a post request to the /new route -->
+    <form method="POST" action="/new">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" />
+      <label for="message">Type a message:</label>
+      <input type="text" id="messageText" name="messageText" />
+      <button>Submit</button>
     </form>
   </body>
 </html>
