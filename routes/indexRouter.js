@@ -1,16 +1,30 @@
 const crypto = require("crypto");
 
+const convertDate = (date) =>
+  date.toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: convertDate(new Date()),
     id: crypto.randomUUID(),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: convertDate(new Date()),
+    id: crypto.randomUUID(),
+  },
+  {
+    text: "Decent App!",
+    user: "Elon",
+    added: convertDate(new Date()),
     id: crypto.randomUUID(),
   },
 ];
@@ -40,7 +54,7 @@ indexRouter.post("/new", (req, res) => {
   messages.push({
     text: messageText,
     user: username,
-    added: new Date(),
+    added: convertDate(new Date()),
     id: crypto.randomUUID(),
   });
 
