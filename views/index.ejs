@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
     <h1><%= title%></h1>
+    <h2>To post a new message, click <a href="/new">here</a></h2>
     <% for( let message of messages ) { %>
-    <h2><%= message.user %> : <%= message.text %></h2>
+    <div class="message-div">
+      <h2><%= message.user %> : <%= message.text %></h2>
+      <a href="/messages/<%= message.id %>">Open</a>
+    </div>
     <% } %>
   </body>
 </html>
