@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message Detail</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Message Detail</h1>
-    <p>User: <%= message.user %></p>
-    <p>Message: <%= message.text %></p>
-    <p>Added on: <%= message.added %></p>
+    <div class="message-detail">
+      <h1>Message Detail</h1>
+      <p>User: <%= message.user %></p>
+      <p>Message: <%= message.text %></p>
+      <p>Added on: <%= message.added %></p>
+    </div>
   </body>
 </html>
